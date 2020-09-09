@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.javent.bncc_remote_data_source.R
 import com.javent.bncc_remote_data_source.model.LookUpData
 
-class LookUpAdapter(private val lookUpList: List<LookUpData>) :
+class LookUpAdapter(private val lookUpList: MutableList<LookUpData>) :
     RecyclerView.Adapter<LookUpViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LookUpViewHolder {
         return LookUpViewHolder(
@@ -26,4 +26,10 @@ class LookUpAdapter(private val lookUpList: List<LookUpData>) :
         return lookUpList.size
     }
 
+    fun updateData(newList: List<LookUpData>) {
+        lookUpList.clear()
+        lookUpList.addAll(newList)
+
+        notifyDataSetChanged()
+    }
 }
