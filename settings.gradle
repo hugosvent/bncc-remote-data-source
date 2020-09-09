@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name = "bncc_remote_data_source"
